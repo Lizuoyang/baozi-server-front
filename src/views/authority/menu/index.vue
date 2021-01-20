@@ -202,7 +202,6 @@
           operationIds: []
         }
         let opRes = await getOperationList({})
-        console.log(opRes)
         this.dialog.operationList = opRes.data
         if (_.isEmpty(data)) {
           this.dialog.title = '新增菜单';
@@ -221,7 +220,6 @@
 
           this.dialog.title = '修改菜单';
         }
-        console.log(this.dialog.menu)
         this.dialog.visible = true;
       },
 

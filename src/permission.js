@@ -50,16 +50,17 @@ router.beforeEach(async(to, from, next) => {
         try {
 
           // get user info
-          const {roleCode, roleId, corps} =await store.dispatch('user/getInfo')
-          //console.log("user corps:", corps)
+          const userInfo =await store.dispatch('user/getInfo')
+          // console.log("user info:", userInfo)
           // 获取系统列表
           let systemRes = await getAllSystemMenuList()
-          let systemMenus = filterSystemMenuList(systemRes,roleCode)
+          let systemMenus = filterSystemMenuList(systemRes,userInfo.roleCode)
+          // console.log("systemMenus: ",systemMenus)
           await store.dispatch('menu/changeActiveTab', _.toString(_.get(systemMenus[0], 'id')))
           await store.dispatch('menu/setSystemMenus', systemMenus)
           //console.log("roleId: ", roleId)
-          let menuList = await store.dispatch('menu/getMenuByRole', roleId);
-
+          let menuList = await store.dispatch('menu/getMenuByRole', userInfo.roleId);
+          // console.log("menuList: ",menuList)
           let formartRoutes = await formatRoutes(menuList);
           // console.log("role menuList: ", roleId, menuList)
           // console.log("formartRoutes: ",formartRoutes)

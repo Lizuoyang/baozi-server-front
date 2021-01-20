@@ -106,8 +106,7 @@
 </template>
 
 <script>
-  import {getUserList, updateUser, getCorps} from '@/api/user'
-  import {getOperationList} from '@/api/operation'
+  import {getUserList, updateUser} from '@/api/user'
   import {getRoleList} from '@/api/role'
   import Pagination from '@/components/Pagination'
   import UpdateDialog from './components/UpdateDialog'
@@ -140,7 +139,6 @@
           }
         },
         roleList: [],
-        corpList: [],
         listLoading: true,
         statusList: [
           {name: '全部', value: ""},
@@ -191,12 +189,10 @@
         } else {
           this.dialog.title = '编辑用户';
           selectedUser.phone = parseInt(selectedUser.phone)
-          selectedUser.corpIds = selectedUser.corps.map(x => x.corpId)
           this.dialog.user = selectedUser
 
         }
         this.dialog.roleList = this.roleList
-        this.dialog.corpList = await this.getCorpList()
         this.dialog.visible = true
 
       },
@@ -220,10 +216,6 @@
           });
         })
       },
-      async getCorpList() {
-        let {data} = await getCorps()
-        return data
-      },
       async initRoles() {
         let res = await getRoleList();
         if (res.code == 200 && res.data) {
@@ -235,7 +227,6 @@
         this.queryForm.limit = this.user.listQuery.limit
         this.listLoading = true
         getUserList(this.queryForm).then(response => {
-          console.log(response)
           this.user.list = response.data.list.filter(x => x.id !== this.currentUser.id)
           this.user.total = response.data.list.filter(x => x.id == this.currentUser.id) == null ? response.data.total : response.data.total - 1
           this.listLoading = false

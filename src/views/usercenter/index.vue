@@ -25,19 +25,13 @@
                   </el-form-item>
 
                   <el-form-item label="性别:">
-                    <el-radio v-model="formUser.sex" label="0">男</el-radio>
-                    <el-radio v-model="formUser.sex" label="1">女</el-radio>
+                    <el-radio v-model="formUser.sex" label="男">男</el-radio>
+                    <el-radio v-model="formUser.sex" label="女">女</el-radio>
                   </el-form-item>
 
                   <el-form-item label="角色选择:" prop="roleId">
                     <el-select v-model="formUser.roleId" :disabled="!_.eq(user.roleCode, 'admin')" style="width: 100%" placeholder="请选择角色" clearable filterable auto-complete="false">
                       <el-option v-for="role in roleList" :key="role.id" :label="role.roleName" :value="role.id"></el-option>
-                    </el-select>
-                  </el-form-item>
-
-                  <el-form-item label="企业选择:" prop="corpIds">
-                    <el-select :disabled="!_.eq(user.roleCode, 'admin')" v-model="formUser.corpIds" style="width: 100%" placeholder="请选择企业" clearable multiple filterable auto-complete="false">
-                      <el-option v-for="corp in corpList" :key="corp.id" :label="corp.corpName" :value="corp.corpId"></el-option>
                     </el-select>
                   </el-form-item>
 
@@ -65,7 +59,7 @@
 <script>
   import UserInfoCard from './components/UserInfoCard'
   import {mapGetters} from "vuex";
-  import {checkInfo, getCorps, saveUser, updateUser} from "@/api/user";
+  import {checkInfo, saveUser, updateUser} from "@/api/user";
   import {getRoleList} from "@/api/role";
   export default {
     name: "UserCenter",
@@ -109,7 +103,6 @@
       return {
         activeTab: 'account',
         formUser: {
-          corpIds: []
         },
         userRules: {
           email: [
@@ -129,9 +122,6 @@
           roleId: [
             {required: true, message: '请选择角色', trigger: 'blur'}
           ],
-          corpIds: [
-            {required: true, message: '请选择企业', trigger: 'blur'}
-          ],
           phone: [
             {required: true, message: '请输入用户联系方式', trigger: 'blur'},
             { type: 'number', message: '联系方式必须为数字值'},
@@ -139,7 +129,6 @@
           ]
         },
         roleList: [],
-        corpList:[]
       }
     },
     components: {
@@ -147,7 +136,6 @@
     },
     created() {
       this.initUserInfo()
-      this.initCorpList()
       this.initRoles()
     },
     computed: {
@@ -158,7 +146,6 @@
     methods: {
       initUserInfo() {
         let cloneDeepUser = _.cloneDeep(this.user)
-        cloneDeepUser.corpIds = this.user.corps.map(x => x.corpId)
         cloneDeepUser.phone = parseInt(cloneDeepUser.phone)
         this.formUser = cloneDeepUser
       },
@@ -181,10 +168,9 @@
                 isDelete: this.formUser.isDelete,
                 roleId: this.formUser.roleId,
                 actionBy: this.user.loginName,
-                corpIds: this.formUser.corpIds
               }
 
-              console.log(params)
+              // console.log(params)
               let res = await updateUser(params)
               let result = res.data
               if (result) {
@@ -196,10 +182,6 @@
             return false;
           }
         })
-      },
-      async initCorpList() {
-        let {data} = await getCorps()
-        this.corpList = data
       },
       async initRoles() {
         const {data} = await getRoleList();

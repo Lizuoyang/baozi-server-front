@@ -35,7 +35,6 @@
     methods: {
       changData(data) {
         if (data){
-          console.log("data",data)
           this.uploadVideo = _.cloneDeep(data.linkUrl)
           this.successOssFile.fileKey = _.cloneDeep(data.fileKey)
 

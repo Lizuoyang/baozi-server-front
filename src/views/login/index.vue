@@ -13,7 +13,7 @@
       <div class="loginBox" >
         <div class="loginCon" >
           <span class="title" :style="titleColor" style="cursor: pointer" @mouseover="handleTitleMouseOver" @mouseleave="handleTitleMouseOut" >包子中台管理系统</span>
-          <span class="sub-title" >这只是一段简介而已</span>
+          <span class="sub-title" >If you don't think about being a god, you should be a secular person.</span>
           <el-card shadow="always" class="login-module">
             <div slot="header" class="clearfix formTitlt">
               <span>密码登录</span>
@@ -87,8 +87,8 @@
       }
       return {
         loginForm: {
-          username: "lizuoyang",
-          password: "qwe22515"
+          username: "",
+          password: ""
         },
         loginRules: {
           username: [{ required: true, trigger: 'blur', validator: validateUsername }],

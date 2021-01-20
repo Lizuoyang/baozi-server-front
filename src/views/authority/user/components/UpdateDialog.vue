@@ -15,19 +15,13 @@
       </el-form-item>
 
       <el-form-item label="性别:">
-        <el-radio v-model="dialog.user.sex" label="0">男</el-radio>
-        <el-radio v-model="dialog.user.sex" label="1">女</el-radio>
+        <el-radio v-model="dialog.user.sex" label="男">男</el-radio>
+        <el-radio v-model="dialog.user.sex" label="女">女</el-radio>
       </el-form-item>
 
       <el-form-item label="角色选择:" prop="roleId">
         <el-select v-model="dialog.user.roleId" placeholder="请选择角色" clearable filterable auto-complete="false">
           <el-option v-for="role in dialog.roleList" :key="role.id" :label="role.roleName" :value="role.id"></el-option>
-        </el-select>
-      </el-form-item>
-
-      <el-form-item label="企业选择:" prop="corpIds">
-        <el-select v-model="dialog.user.corpIds" placeholder="请选择企业" clearable multiple filterable auto-complete="false">
-          <el-option v-for="corp in dialog.corpList" :key="corp.id" :label="corp.corpName" :value="corp.corpId"></el-option>
         </el-select>
       </el-form-item>
 
@@ -112,9 +106,6 @@
           roleId: [
             {required: true, message: '请选择角色', trigger: 'blur'}
           ],
-          corpIds: [
-            {required: true, message: '请选择企业', trigger: 'blur'}
-          ],
           phone: [
             {required: true, message: '请输入用户联系方式', trigger: 'blur'},
             { type: 'number', message: '联系方式必须为数字值'},
@@ -148,7 +139,6 @@
               isDelete: this.dialog.user.isDelete,
               roleId: this.dialog.user.roleId,
               actionBy: this.user.loginName,
-              corpIds: this.dialog.user.corpIds
             }
 
             let result = false;

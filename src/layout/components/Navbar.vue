@@ -65,7 +65,7 @@ export default {
   methods: {
     change() {
       this.fullscreen.visible = screenfull.isFullscreen
-      console.log("change: ",this.fullscreen.visible)
+      // console.log("change: ",this.fullscreen.visible)
       this.fullscreen.title = this.fullscreen.visible ? '退出全屏' : '全屏显示'
       this.fullscreen.icon = this.fullscreen.visible ? 'exit-fullscreen' : 'fullscreen'
     },

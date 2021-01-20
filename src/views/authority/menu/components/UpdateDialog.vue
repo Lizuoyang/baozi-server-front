@@ -210,7 +210,6 @@
             let params = _.cloneDeep(this.dialog.menu)
             params.actionBy = this.user.loginName
             params.operationIds = this.checkedOperations
-            console.log(params)
             let updRes = await updateMenu(params);
             let result = updRes.data
             this.dialog.visible = !result

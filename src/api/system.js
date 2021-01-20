@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const prefix = '/api/sys/system'
+const prefix = '/api/sys/tem'
 export function getAllSystemMenuList() {
   return request({
     url: prefix + '/list',

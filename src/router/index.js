@@ -102,22 +102,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-  {
-    path: '/example',
-    component: Layout,
-    meta: {
-      systemId: ["4"]
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/example/index'),
-        name: 'Example',
-        meta: { title: '公共组件', icon: 'el-icon-share' }
-      }
-    ]
-  },
 ]
 
 const createRouter = () => new Router({

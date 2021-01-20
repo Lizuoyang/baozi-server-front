@@ -33,7 +33,6 @@ service.interceptors.request.use(
     } else {
       config.url = config.url + '?hash=' + new Date().getTime();
     }
-
     return config;
   },
   error => {

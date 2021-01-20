@@ -21,8 +21,6 @@
       ...mapGetters([
         'activeTab',
         'systemMenus',
-        'corps',
-        'currentCorp'
       ])
     },
     watch: {

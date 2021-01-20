@@ -35,6 +35,7 @@ const actions = {
   getMenuByRole({ commit }, roleId) {
     return new Promise((resolve, reject) => {
       getMenuListByRoleId(roleId).then(response => {
+        // console.log("getMenuListByRoleId: ",response)
         const { data } = response
         resolve(data)
       }).catch(error => {
