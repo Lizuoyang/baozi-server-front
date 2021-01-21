@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-const prefix = '/api/sys/user'
+const prefix = '/sys/user'
 
 export function login(data) {
   return request({

@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const prefix = '/api/sys/operation'
+const prefix = '/sys/operation'
 
 export function getOperationList(params) {
   return request({

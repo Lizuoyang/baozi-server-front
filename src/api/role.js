@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const prefix = '/api/sys/role'
+const prefix = '/sys/role'
 export function getRoleList() {
   return request({
     url: prefix + '/list/all',

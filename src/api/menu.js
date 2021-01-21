@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const prefix = '/api/sys/menu'
+const prefix = '/sys/menu'
 export function setMenuShow(data) {
   return request({
     url: prefix + `/update/show`,
