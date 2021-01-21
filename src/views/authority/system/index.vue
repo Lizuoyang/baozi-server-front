@@ -3,10 +3,10 @@
     <el-container>
       <el-header class="dashboard-head">
         <el-form :inline="true" :model="queryForm" class="demo-form-inline">
-          <el-form-item label="系统名称">
+          <el-form-item label="系统名称:">
             <el-input v-model="queryForm.systemName" placeholder="系统名称" clearable @clear="initData()"></el-input>
           </el-form-item>
-          <el-form-item label="系统编码">
+          <el-form-item label="系统编码:">
             <el-input v-model="queryForm.systemCode" placeholder="系统编码" clearable @clear="initData()"></el-input>
           </el-form-item>
           <el-form-item label="状态:">

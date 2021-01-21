@@ -3,10 +3,10 @@
     <el-container>
       <el-header class="dashboard-head">
         <el-form :inline="true" :model="queryForm" class="demo-form-inline" >
-          <el-form-item label="角色名称">
+          <el-form-item label="角色名称:">
             <el-input v-model="queryForm.roleName" placeholder="角色名称" clearable @clear="initData()"></el-input>
           </el-form-item>
-          <el-form-item label="角色编码">
+          <el-form-item label="角色编码:">
             <el-input v-model="queryForm.roleCode" placeholder="角色编码" clearable @clear="initData()"></el-input>
           </el-form-item>
           <el-form-item label="状态:">
