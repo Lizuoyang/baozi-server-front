@@ -3,11 +3,11 @@
     <el-form style="width: 400px" :model="dialog.system" :rules="systemRules" ref="systemRuleForm" label-width="100px"
              class="demo-roleForm">
       <el-form-item label="系统名称：" prop="systemName">
-        <el-input v-model="dialog.system.systemName" placeholder="请输入角色名称"></el-input>
+        <el-input v-model="dialog.system.systemName" placeholder="请输入系统名称"></el-input>
       </el-form-item>
 
       <el-form-item label="系统编码：" prop="systemCode">
-        <el-input v-model="dialog.system.systemCode" placeholder="请输入角色编码"></el-input>
+        <el-input v-model="dialog.system.systemCode" placeholder="请输入系统编码"></el-input>
       </el-form-item>
 
       <el-form-item label="排序：" prop="systemSort">

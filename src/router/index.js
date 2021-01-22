@@ -72,22 +72,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/theme',
-    component: Layout,
-    meta: {
-      systemId: ["0"]
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/theme/index'),
-        name: 'Theme',
-        meta: { title: '换肤', icon: 'theme' }
-      }
-    ]
-  },
-
-  {
     path: '/usercenter',
     component: Layout,
     meta: {

@@ -4,25 +4,11 @@
 
     <breadcrumb-menu class="breadcrumb-container" />
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
+      <div class="avatar-container">
         <div class="avatar-wrapper">
-          <img :src="user.imageUrl+'?imageView2/1/w/80/h/80'" class="user-avatar">
-          <i class="el-icon-caret-bottom" />
+          <img src="@/assets/images/user-avator.png" class="user-avatar">
         </div>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <el-dropdown-item>
-            <i class="el-icon-user" @click="info"> 个人中心</i>
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <div @click="fullscreenClick">
-              <svg-icon :icon-class="fullscreen.icon"/><span> {{fullscreen.title}}</span>
-            </div>
-          </el-dropdown-item>
-          <el-dropdown-item divided @click.native="logout">
-            <i class="el-icon-switch-button" > 退出登录</i>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +18,6 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb/index'
 import BreadcrumbMenu from '@/components/Breadcrumb/menu'
 import Hamburger from '@/components/Hamburger'
-import screenfull from 'screenfull'
 export default {
   data(){
     return {
@@ -56,44 +41,10 @@ export default {
       'user'
     ])
   },
-  mounted() {
-    this.init()
-  },
-  beforeDestroy() {
-    this.destroy()
-  },
   methods: {
-    change() {
-      this.fullscreen.visible = screenfull.isFullscreen
-      // console.log("change: ",this.fullscreen.visible)
-      this.fullscreen.title = this.fullscreen.visible ? '退出全屏' : '全屏显示'
-      this.fullscreen.icon = this.fullscreen.visible ? 'exit-fullscreen' : 'fullscreen'
-    },
-    destroy() {
-      screenfull.off('change', this.change)
-    },
-    init() {
-      screenfull.on('change', this.change)
-    },
-    fullscreenClick() {
-      screenfull.toggle()
-    },
-    info() {
-      this.$router.push(`/usercenter/index`)
-    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      this.$confirm('亲，确定要退出了吗?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(async () => {
-        await this.$store.dispatch('user/logout')
-        this.$router.push(`/login?redirect=${this.$route.fullPath}`)
-      })
-    }
   }
 }
 </script>
@@ -151,7 +102,7 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
+      margin-right: 20px;
 
       .avatar-wrapper {
         margin-top: 5px;

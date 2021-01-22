@@ -163,8 +163,8 @@ export default {
 }
 
 .theme-picker .el-color-picker__trigger {
-  height: 26px !important;
-  width: 26px !important;
+  height: 30px !important;
+  width: 30px !important;
   padding: 2px;
 }
 

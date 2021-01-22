@@ -6,7 +6,7 @@
 
     <div class="user-profile">
       <div class="box-center">
-        <thumb :image="user.imageUrl" :height="'100px'" :width="'100px'" :hoverable="false">
+        <thumb :image="require('../../../assets/images/user-avator.png')" :height="'100px'" :width="'100px'" :hoverable="false">
           <div>Hello</div>
           {{ user.sex == '男' ? '小哥哥' : '小姐姐' }}
         </thumb>
