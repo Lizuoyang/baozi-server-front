@@ -25,7 +25,7 @@
         <el-table
           v-loading="listLoading"
           :data="menu.navigations"
-          height="500"
+          height="450"
           row-key="id"
           element-loading-text="加载中"
           border
