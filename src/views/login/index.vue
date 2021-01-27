@@ -1,19 +1,17 @@
 <template>
-  <div id="login" >
+  <div id="login" :style="bgImage">
     <div class="loginConbox">
       <div class="header">
         <div style="padding: 15px; float: left; margin-left: 100px">
           <svg-icon icon-class="logo" style="width: 120px;height: 30px"></svg-icon>
         </div>
         <div style="padding: 200px">
-          <span class="head-title">登录</span>
+          <span class="head-title" :style="titleColor" style="cursor: pointer" @mouseover="handleTitleMouseOver" @mouseleave="handleTitleMouseOut">包子中台管理系统</span>
         </div>
 
       </div>
       <div class="loginBox" >
         <div class="loginCon" >
-          <span class="title" :style="titleColor" style="cursor: pointer" @mouseover="handleTitleMouseOver" @mouseleave="handleTitleMouseOut" >包子中台管理系统</span>
-          <span class="sub-title" >If you don't think about being a god, you should be a secular person.</span>
           <el-card shadow="always" class="login-module">
             <div slot="header" class="clearfix formTitlt">
               <span>密码登录</span>
@@ -56,10 +54,31 @@
               </el-form-item>
               <p class="smalltxt">
                 <router-link class="a" to="#">忘记密码</router-link>
+                <router-link class="a" to="#">忘记会员名</router-link>
                 <router-link class="a" to="#">免费注册</router-link>
               </p>
             </el-form>
           </el-card>
+
+          <vue-particles
+            color="#dedede"
+            :particleOpacity="1"
+            :particlesNumber="150"
+            shapeType="circle"
+            :particleSize="4"
+            linesColor="#292929"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.4"
+            :linesDistance="150"
+            :moveSpeed="3"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+            class="lizi"
+          >
+          </vue-particles>
         </div>
       </div>
     </div>
@@ -87,8 +106,8 @@
       }
       return {
         loginForm: {
-          username: "lizuoyang",
-          password: "qwe22515"
+          username: "admin",
+          password: "A@123456"
         },
         loginRules: {
           username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -195,51 +214,23 @@
         color: #409EFF;
       }
 
-      padding: 74px 0 118px;
-
       .loginCon {
-        width: 990px;
         margin: auto;
-        position: relative;
-        height: 388px;
+        position: fixed;
+        width: calc(100%);
+        height: calc(100%);
 
         .el-card__header {
           border-bottom: 0px;
         }
-        .title{
-          font-size: 28px;
-          font-weight: 600;
-          color: #181818;
-          width: 500px;
-          float: left;
-          margin-top: 0px;
-          &:first-child{
-            font-size: 34px;
-            margin-top: 50px;
-            margin-bottom: 30px;
-          }
-        }
-
-        .sub-title{
-          line-height: 30px;
-          font-size: 16px;
-          color: #999;
-          width: 500px;
-          float: left;
-          margin-top: 0px;
-          &:first-child{
-            font-size: 34px;
-            margin-top: 50px;
-            margin-bottom: 30px;
-          }
-        }
-    .login-module {
+        .login-module {
           width: 380px;
           height: 325px;
-          margin-top: 60px;
+          margin-top: 135px;
           border: none;
           position: absolute;
-          right: 0;
+          background-color: transparent;
+          right: 15%;
           box-shadow: 0 2px 15px rgba(0,0,0,.15);
 
           .formTitlt {

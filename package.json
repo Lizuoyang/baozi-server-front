@@ -36,6 +36,7 @@
     "vue-ele-upload-file": "0.0.7",
     "vue-ele-upload-image": "^2.0.12",
     "vue-ele-upload-video": "^2.0.6",
+    "vue-particles": "^1.0.9",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "3.0.6",
     "vuex": "3.1.0"

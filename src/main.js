@@ -88,6 +88,12 @@ import waves from '@/directive/waves'
 Vue.directive('waves', waves)
 Vue.use(waves)
 
+/**
+ * 注册全局组件 - 粒子特效
+ */
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+
 import has from './directive/btn-operation';
 
 /**
