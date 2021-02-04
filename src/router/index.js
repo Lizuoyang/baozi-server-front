@@ -75,7 +75,7 @@ export const constantRoutes = [
     path: '/usercenter',
     component: Layout,
     meta: {
-      systemId: ["0"]
+      systemId: ["4"]
     },
     children: [
       {

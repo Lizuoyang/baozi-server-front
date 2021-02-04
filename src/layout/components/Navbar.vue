@@ -5,7 +5,7 @@
     <breadcrumb-menu class="breadcrumb-container" />
     <div class="right-menu">
       <div class="avatar-container">
-        <div class="avatar-wrapper">
+        <div class="avatar-wrapper" @click="toUserInfo">
           <img src="@/assets/images/user-avator.png" class="user-avatar">
         </div>
       </div>
@@ -42,6 +42,9 @@ export default {
     ])
   },
   methods: {
+    toUserInfo() {
+      this.$router.push("/usercenter/index")
+    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
