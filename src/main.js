@@ -96,6 +96,9 @@ Vue.use(VueParticles)
 
 import has from './directive/btn-operation';
 
+import Sticky from '@/components/Sticky'
+Vue.component('sticky', Sticky);
+
 /**
  * 引入全局常量
  */
