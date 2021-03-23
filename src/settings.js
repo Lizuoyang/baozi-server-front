@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '包子中台管理系统',
+  title: 'WMS后台管理系统',
 
   /**
    * @type {boolean} true | false
